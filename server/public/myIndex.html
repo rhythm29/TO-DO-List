@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>My TO-DO App</title>
+	<script type="text/javascript">
+	        function setUserName(){
+		    var validObj = {
+			phone:"+918884168686",
+			accessToken:'abcde'
+		    }
+	    
+		var http = new XMLHttpRequest();
+		http.open("POST", "/api/validate/", true);
+		http.setRequestHeader("Content-type", "application/json");
+		http.onreadystatechange = function() {
+            if (http.readyState == 4 && http.status == 200) {
+                var resData = JSON.parse(http.responseText);
+                //console.log(resData);
+                var userData = {
+                    name: resData.name,
+                    phone: resData.phone
+                };
+                if(userData.name ==''){
+                	while(userData.name=='' || userData.name=='/s' || userData.name==null){
+                		userData.name = prompt("Enter your name (without spaces)");
+                	}
+                
+                var xhrData = {
+                	name: userData.name,
+                    phonenm: userData.phone
+                };
+                var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/api/users", true);
+                    xhr.setRequestHeader("content-type", "application/json");
+                    xhr.onreadystatechange = function(){
+                        if(xhr.readyState == 4 && xhr.status == 200){
+                            console.log(xhr.responseText)
+                        }
+                    }
+                    xhr.send(JSON.stringify(xhrData));                    
+                }
+                localStorage.setItem(userData, JSON.stringify(userData));
+                //console.log(localStorage.getItem(userData));
+                window.location = "/myTodo.html";  
+
+            }
+        }
+        http.send(JSON.stringify(validObj));
+    }
+
+	</script>
+</head>
+<body onload="setUserName()">
+</body>
+</html>

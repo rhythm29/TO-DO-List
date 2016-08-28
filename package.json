@@ -1,0 +1,24 @@
+{
+  "name": "todo-app-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon --watch server ./bin/www -x"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-node5": "^11.1.0",
+    "babel-register": "^6.11.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "nodemon": "^1.10.0"
+  },
+  "babel": {
+    "presets": [
+      "node5"
+    ]
+  }
+}

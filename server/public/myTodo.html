@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ToDo List</title>
+  <link rel="stylesheet" type="text/css" href="./form.css">
+  <script type="text/javascript" src="myClient.js"></script>
+
+</head>
+<body onload="getUsers()">
+<h1 style="text-align:center">My TODO List </h1>
+<h3 id = "welcome" style="text-align:center"> </h3>
+<div id = "forC">
+<form onsubmit=createTask()>
+    <label>Task
+      <input type="text" id="name" value="" placeholder="Title" /></label>
+      <br><br>
+    <label>Assign To
+      <select onchange="savePhone(this)" name="select" id="contacts" option value="" /></label>
+    <br><br>
+    <input type="hidden" id="hid" name="phonenumber" value="">
+    <br><br>
+   <label>Date
+      <input type="date" id="date" autofocus="true" /></label>
+   <br><br>
+   <input class="button" type="submit" value = "Submit" />
+</form>
+</div>
+</body>
+</html>
